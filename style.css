@@ -1,0 +1,12 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    --color-primary: #363F5E;
+    --color-primary-dark: #192A5E;
+    --color-white: #FFFFFF;
+}
+
+canvas {
+    display: block;
+}
