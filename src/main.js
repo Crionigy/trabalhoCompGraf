@@ -1,25 +1,30 @@
 let planes = [];
 let PLANE_ID_COUNTER = 0;
+let widthCanvas = 800;
+let heightCanvas = 800;
 
+let angle = 0;
+
+let vPlanes = [];
 
 function setup() {
-    createCanvas(800, 800);
-
-    //constructor expects id, color, x, y, angle
-    planes.push(new Plane(0, "silver", 0, 0, 0));
-    planes.push(new Plane(1, "green", 100, 0, 0));
+    createCanvas(widthCanvas, heightCanvas);
 }
 
 function draw() {
     background(51);
+
+    push();
     
-    planes.forEach((plane) => plane.display());
-    // display
-    // planes.forEach((plane) => plane.display());
-    // planes.forEach((plane) => plane.move(plane.x, plane.y, plane.angle));
+    translate(widthCanvas / 2, heightCanvas /2);
+    rectMode(CENTER);
+
+    for (let i = 0; i < vPlanes.length; i++) {
+        rect(vPlanes[i].x, vPlanes[i].y, 40, 40);        
+    }
+
+    pop();
 }
-
-
 
 // Inserir Objeto
 const element = document.getElementById('inserir');
@@ -27,6 +32,6 @@ element.addEventListener('submit', event => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.target).entries());
     let plane = new Plane(PLANE_ID_COUNTER, gerarCor(), parseInt(data.x), parseInt(data.y), parseInt(data.angle));
-    planes.push(plane);
+    vPlanes.push(data);
     PLANE_ID_COUNTER++;
 });
