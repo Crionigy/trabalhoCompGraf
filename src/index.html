@@ -2,29 +2,318 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8" />
 </head>
 
-<body>
-    <form id="inserir">
-        <label for="x">X</label><br>
-        <input type="number" id="x" name="x" min="-400" max="400" value="0"><br>
+<body class="container-fluid">
+    <!-- Direita -->
+    <div class="row">
+        <div class="col-sm">
+            <ul class="nav nav-tabs" id="tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="cadastro-tab" data-toggle="tab" href="#cadastro" role="tab"
+                        aria-controls="cadastro" aria-selected="true">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="colisao-tab" data-toggle="tab" href="#colisao" role="tab"
+                        aria-controls="colisao" aria-selected="false">Colisão</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="distancia-tab" data-toggle="tab" href="#distancia" role="tab"
+                        aria-controls="distancia" aria-selected="false">Distancia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="relatorio-tab" data-toggle="tab" href="#relatorio" role="tab"
+                        aria-controls="relatorio" aria-selected="false">Relatório</a>
+                </li>
+            </ul>
 
-        <label for="y">Y</label><br>
-        <input type="number" id="y" name="y" min="-400" max="400" value="0"><br>
+            <div class="tab-content" id="myTabContent">
 
-        <label for="angle">angle</label><br>
-        <input type="number" id="angle" name="angle" min="0" max="360" value="90"><br><br>
+                <!-- ABA CADASTRO -->
+                <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
+                    
+                    <!-- Inserir -->
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <form id="inserir">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">X</span>
+                                            </div>
+                                            <input class="form-control" placeholder="X" type="number" id="x" name="x"
+                                                min="-400" max="400" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Raio</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Raio" type="number" id="y"
+                                                name="y" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Direção</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Direção" type="number"
+                                                id="direcao" name="direcao" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Y</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Y" type="number" id="y" name="y"
+                                                min="-400" max="400" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Angle</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Angle" type="number" id="angle"
+                                                name="angle" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Velocidade</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Velocidade" type="number"
+                                                id="velocidade" name="velocidade" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" id="inserir" class="btn btn-primary btn-block">Inserir</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-        <button type="submit" id="inserir">Inserir</button><br><br>
-    </form>
+                    <!-- Transformação -->
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <form id="transformacao">
+                                <div class="form-row">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <label class="input-group-text" for="inputGroupSelect01">Modos</label>
+                                        </div>
+                                        <select class="custom-select" id="inputGroupSelect01">
+                                          <option selected value="">Escolher...</option>
+                                          <option value="1">Translandar</option>
+                                          <option value="2">Escalonar</option>
+                                          <option value="3">Rotacionar</option>
+                                        </select>
+                                      </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">X</span>
+                                            </div>
+                                            <input class="form-control" placeholder="X" type="number" id="x" name="x"
+                                                min="-400" max="400" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Y</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Y" type="number" id="raio"
+                                                name="raio" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    id="inputGroup-sizing-default">Ângulo</span>
+                                            </div>
+                                            <input class="form-control" placeholder="Ângulo" type="number"
+                                                id="angulo" name="angulo" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" id="aplicar" class="btn btn-primary btn-block">Aplicar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-    <script src="main.js "></script>
+                    <!-- Tabela aviões -->
+                    <div class="card">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">X</th>
+                                <th scope="col">Y</th>
+                                <th scope="col">R</th>
+                                <th scope="col">A</th>
+                                <th scope="col">V</th>
+                                <th scope="col">D</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                              </tr>
+                              <tr>
+                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                              </tr>
+                              <tr>
+                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>100</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+
+                <!-- ABA COLISÃO -->
+                <div class="tab-pane fade" id="colisao" role="tabpanel" aria-labelledby="colisao-tab">
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <form id="transformacao">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Tempo mínimo</span>
+                                            </div>
+                                            <input class="form-control" type="number" id="tempo_minimo" name="tempo_minimo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" id="aplicar" class="btn btn-primary btn-block">Em rota de colisão</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                </div>
+
+                <!-- ABA DISTANCIA -->
+                <div class="tab-pane fade" id="distancia" role="tabpanel" aria-labelledby="distancia-tab">
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <form id="transformacao">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia mínima</span>
+                                            </div>
+                                            <input class="form-control" type="number" id="avioes_proximos" name="avioes_proximos">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões próximos</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <form id="transformacao">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia mínima</span>
+                                            </div>
+                                            <input class="form-control" type="number" id="avioes_proximos_aeroporto" name="avioes_proximos_aeroporto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões próximos ao aeroporto</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                </div>
+
+                <!-- ABA RELATORIO -->
+                <div class="tab-pane fade" id="relatorio" role="tabpanel" aria-labelledby="relatorio-tab">
+                    <textarea  placeholder="Relatório" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- RADAR -->
+        <div class="col-sm mt-4">
+            <canvas id="radar" width="600" height="600" style="background-image: url('../assets/radar.png'); background-size: cover; background-repeat: no-repeat; background-position: center center;"></canvas>
+        </div>
+    </div>
+
+    <!-- <script src="main.js "></script> -->
     <script src="Utils.js"></script>
     <script src="Plane.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

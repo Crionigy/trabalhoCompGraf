@@ -1,7 +1,7 @@
 let planes = [];
 let PLANE_ID_COUNTER = 0;
-let widthCanvas = 800;
-let heightCanvas = 800;
+let widthCanvas = 600;
+let heightCanvas = 600;
 
 let angle = 0;
 
