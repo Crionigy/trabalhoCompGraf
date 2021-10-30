@@ -5,7 +5,8 @@ let heightCanvas = 600;
 
 function setup() {
   createCanvas(widthCanvas, heightCanvas);
-  backgroundImage = loadImage("../assets/desmos-graph.png");
+  var imagePath = '../assets/desmos-graph.png';
+  backgroundImage = loadImage(imagePath);
 }
 
 function draw() {
