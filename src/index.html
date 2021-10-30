@@ -37,7 +37,7 @@
 
                 <!-- ABA CADASTRO -->
                 <div class="tab-pane fade show active" id="cadastro" role="tabpanel" aria-labelledby="cadastro-tab">
-                    
+
                     <!-- Inserir -->
                     <div class="card mt-2">
                         <div class="card-body">
@@ -58,8 +58,8 @@
                                                 <span class="input-group-text"
                                                     id="inputGroup-sizing-default">Raio</span>
                                             </div>
-                                            <input class="form-control" placeholder="Raio" type="number" id="y"
-                                                name="y" min="0" max="360" value="0">
+                                            <input class="form-control" placeholder="Raio" type="number" id="raio" name="raio"
+                                                min="0" max="360" value="0">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -68,8 +68,8 @@
                                                 <span class="input-group-text"
                                                     id="inputGroup-sizing-default">Direção</span>
                                             </div>
-                                            <input class="form-control" placeholder="Direção" type="number"
-                                                id="direcao" name="direcao" min="0" max="360" value="0">
+                                            <input class="form-control" placeholder="Direção" type="number" id="direcao"
+                                                name="direcao" min="0" max="360" value="0">
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,8 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="inserir" class="btn btn-primary btn-block">Inserir</button>
+                                    <button type="submit" id="inserir"
+                                        class="btn btn-primary btn-block">Inserir</button>
                                 </div>
                             </form>
                         </div>
@@ -118,15 +119,15 @@
                                 <div class="form-row">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                          <label class="input-group-text" for="inputGroupSelect01">Modos</label>
+                                            <label class="input-group-text" for="inputGroupSelect01">Modos</label>
                                         </div>
                                         <select class="custom-select" id="inputGroupSelect01">
-                                          <option selected value="">Escolher...</option>
-                                          <option value="1">Translandar</option>
-                                          <option value="2">Escalonar</option>
-                                          <option value="3">Rotacionar</option>
+                                            <option selected value="">Escolher...</option>
+                                            <option value="1">Translandar</option>
+                                            <option value="2">Escalonar</option>
+                                            <option value="3">Rotacionar</option>
                                         </select>
-                                      </div>
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
@@ -141,8 +142,7 @@
                                     <div class="col">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Y</span>
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Y</span>
                                             </div>
                                             <input class="form-control" placeholder="Y" type="number" id="raio"
                                                 name="raio" min="0" max="360" value="0">
@@ -154,13 +154,14 @@
                                                 <span class="input-group-text"
                                                     id="inputGroup-sizing-default">Ângulo</span>
                                             </div>
-                                            <input class="form-control" placeholder="Ângulo" type="number"
-                                                id="angulo" name="angulo" min="0" max="360" value="0">
+                                            <input class="form-control" placeholder="Ângulo" type="number" id="angulo"
+                                                name="angulo" min="0" max="360" value="0">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="aplicar" class="btn btn-primary btn-block">Aplicar</button>
+                                    <button type="submit" id="aplicar"
+                                        class="btn btn-primary btn-block">Aplicar</button>
                                 </div>
                             </form>
                         </div>
@@ -170,51 +171,51 @@
                     <div class="card">
                         <table class="table">
                             <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">ID</th>
-                                <th scope="col">X</th>
-                                <th scope="col">Y</th>
-                                <th scope="col">R</th>
-                                <th scope="col">A</th>
-                                <th scope="col">V</th>
-                                <th scope="col">D</th>
-                                
-                              </tr>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">X</th>
+                                    <th scope="col">Y</th>
+                                    <th scope="col">R</th>
+                                    <th scope="col">A</th>
+                                    <th scope="col">V</th>
+                                    <th scope="col">D</th>
+
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                              </tr>
-                              <tr>
-                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                              </tr>
-                              <tr>
-                                <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                                <td>100</td>
-                              </tr>
+                                <tr>
+                                    <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                </tr>
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                 </div>
 
@@ -227,20 +228,24 @@
                                     <div class="col">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Tempo mínimo</span>
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Tempo
+                                                    mínimo</span>
                                             </div>
-                                            <input class="form-control" type="number" id="tempo_minimo" name="tempo_minimo">
+                                            <input class="form-control" type="number" id="tempo_minimo"
+                                                name="tempo_minimo">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="aplicar" class="btn btn-primary btn-block">Em rota de colisão</button>
+                                    <button type="submit" id="aplicar" class="btn btn-primary btn-block">Em rota de
+                                        colisão</button>
                                 </div>
                             </form>
                         </div>
                     </div>
 
-                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70"
+                        rows="10"></textarea>
                 </div>
 
                 <!-- ABA DISTANCIA -->
@@ -252,14 +257,17 @@
                                     <div class="col">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia mínima</span>
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia
+                                                    mínima</span>
                                             </div>
-                                            <input class="form-control" type="number" id="avioes_proximos" name="avioes_proximos">
+                                            <input class="form-control" type="number" id="avioes_proximos"
+                                                name="avioes_proximos">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões próximos</button>
+                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões
+                                        próximos</button>
                                 </div>
                             </form>
                         </div>
@@ -272,38 +280,59 @@
                                     <div class="col">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia mínima</span>
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Distancia
+                                                    mínima</span>
                                             </div>
-                                            <input class="form-control" type="number" id="avioes_proximos_aeroporto" name="avioes_proximos_aeroporto">
+                                            <input class="form-control" type="number" id="avioes_proximos_aeroporto"
+                                                name="avioes_proximos_aeroporto">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões próximos ao aeroporto</button>
+                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões
+                                        próximos ao aeroporto</button>
                                 </div>
                             </form>
                         </div>
                     </div>
 
-                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70"
+                        rows="10"></textarea>
                 </div>
 
                 <!-- ABA RELATORIO -->
                 <div class="tab-pane fade" id="relatorio" role="tabpanel" aria-labelledby="relatorio-tab">
-                    <textarea  placeholder="Relatório" class="mt-2" name="calculos" id="calculos" cols="70" rows="10"></textarea>
+                    <textarea placeholder="Relatório" class="mt-2" name="calculos" id="calculos" cols="70"
+                        rows="10"></textarea>
                 </div>
             </div>
         </div>
 
         <!-- RADAR -->
         <div class="col-sm mt-4">
-            <canvas id="radar" width="600" height="600" style="background-image: url('../assets/radar.png'); background-size: cover; background-repeat: no-repeat; background-position: center center;"></canvas>
+            <!-- <canvas id="radar" width="600" height="600" style="background-image: url('../assets/radar.png'); background-size: cover; background-repeat: no-repeat; background-position: center center;"></canvas> -->
         </div>
     </div>
 
-    <!-- <script src="main.js "></script> -->
+    <script src="main.js "></script>
     <script src="Utils.js"></script>
     <script src="Plane.js"></script>
+
+    <script>
+        async function styleCanvas() {
+            var panel = document.getElementById('defaultCanvas0');
+            if (!panel) {
+                await new Promise(r => setTimeout(r, 200));
+                styleCanvas()
+            } else {
+                panel.style.marginLeft = "53%";
+                panel.style.marginTop = "-100%";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", styleCanvas);
+
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

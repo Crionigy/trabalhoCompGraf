@@ -1,43 +1,56 @@
 class Plane {
+  constructor(id, color, x, y, angle) {
+    this.id = id;
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.angle = angle;
+    this.r = 10;
+    this.cartesianX = 0;
+    this.cartesianY = 0;
+    this.rotation = 0;
+    this.setCanvasCartesianPoint(this.x, this.y);
+  }
 
-    constructor(id, color, x, y, angle) {
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.angle = angle;
+  render() {
+    push();
+    rectMode(CENTER);
+    translate(this.cartesianX, this.cartesianY);
+    rotate(this.angle);
+    fill(0);
+    stroke(255);
+    triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
+    pop();
+  }
+
+  edges() {
+    if (this.cartesianX > width + this.r) {
+      this.cartesianX = -this.r;
+    } else if (this.cartesianX < -this.r) {
+      this.cartesianX = width + this.r;
     }
-
-    display() {
-        this.setCanvasCartesianPoint(this.x, this.y);
-        this.imprimir();
-        rectMode(CENTER);
-        translate(this.cartesianX, this.cartesianY);
-        rotate(this.angle);
-        fill(this.color);
-        rect(0, 0, 40, 40);
+    if (this.cartesianY > height + this.r) {
+      this.cartesianY = -this.r;
+    } else if (this.cartesianY < -this.r) {
+      this.cartesianY = height + this.r;
     }
+  }
 
-    setCanvasCartesianPoint(x, y) {
-        var midWidth = width / 2;
-        var midHeight = height / 2;
-        var cartesianX = midWidth + x;
-        var cartesianY = midHeight + y;
+  setRotation(a) {
+    this.rotation = a;
+  }
 
-        this.cartesianX = cartesianX;
-        this.cartesianY = cartesianY;
-    }
+  turn() {
+    this.angle += this.rotation;
+  }
 
-    setAngle(angle) {
-        this.angle = angle;
-    }
+  setCanvasCartesianPoint(x, y) {
+    var midWidth = width / 2;
+    var midHeight = height / 2;
+    var cartesianX = midWidth + x;
+    var cartesianY = midHeight - y;
 
-    move(x, y, angle) {
-        //this.setCanvasCartesianPoint(x, y);
-        this.setAngle(angle)
-    }
-
-    imprimir() {
-        console.log(`Id Plane: ${this.id}, X: ${this.x - (width / 2)}, Y: ${this.y - (height / 2)}, ANGLE: ${this.angle}`)
-    }
+    this.cartesianX = cartesianX;
+    this.cartesianY = cartesianY;
+  }
 }
