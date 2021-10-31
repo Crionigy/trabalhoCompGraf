@@ -5,8 +5,11 @@ let heightCanvas = 600;
 
 function setup() {
   createCanvas(widthCanvas, heightCanvas);
+  
   var imagePath = '/assets/desmosGraph.png';
   backgroundImage = loadImage(imagePath);
+
+  angleMode(DEGREES);
 }
 
 function draw() {
@@ -37,7 +40,10 @@ element.addEventListener("submit", (event) => {
       gerarCor(),
       parseInt(data.x),
       parseInt(data.y),
-      parseInt(data.angle)
+      parseInt(data.raio),
+      parseInt(data.angle),
+      parseInt(data.direcao),
+      parseInt(data.velocidade)
     )
   );
   PLANE_ID_COUNTER++;
