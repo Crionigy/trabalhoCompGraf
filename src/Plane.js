@@ -1,25 +1,31 @@
 class Plane {
   constructor(id, color, x, y, raio, angle, direcao, velocidade) {
-    // raioTriangulo
-    this.raioTriangulo = 10;
-    this.color = color;
-
-    // Coordenadas
+    this.selected = false;
     this.id = id;
+    this.color = color;
+    // raioTriangulo
+    // this.raioTriangulo = 10;
+
+    // Coordenadas real do canvas
     this.x = x;
     this.y = y;
-    this.raio = raio;
-    this.angle = angle;
-
+    
     // efeito visual
     this.direcao = direcao;
     this.velocidade = velocidade;
+    
+    // coordenadas polares
+    this.raio = raio;
+    this.angle = angle;
 
+    // coordenadas cartesianas
     this.cartesianX = 0;
     this.cartesianY = 0;
 
+    // rotação
     this.rotation = 0;
 
+    // seta as coordenadas cartesianas ou polar
     this.setCoordenadas();
   }
 
