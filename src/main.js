@@ -4,7 +4,8 @@ let widthCanvas = 600;
 let heightCanvas = 600;
 
 function setup() {
-  createCanvas(widthCanvas, heightCanvas);
+  const canvas = createCanvas(widthCanvas, heightCanvas);
+  canvas.parent('sketch-holder');
   
   var imagePath = '/assets/desmosGraph.png';
   backgroundImage = loadImage(imagePath);
@@ -29,7 +30,10 @@ function keyPressed() {
   }
 }
 
-// Inserir Objeto
+// Iniciando table
+const dynamicTable = new DynamicTable('data-table', ['selected', 'x', 'y', 'raio', 'angle', 'direcao', 'velocidade'], ['Selecionado', 'X', 'Y', 'Raio', 'Angle', 'Direção', 'Velocidade']);
+
+// Inserir Avião
 const element = document.getElementById("inserir");
 element.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -47,4 +51,5 @@ element.addEventListener("submit", (event) => {
     )
   );
   PLANE_ID_COUNTER++;
+  dynamicTable.load(planes);
 });

@@ -7,6 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -168,35 +169,8 @@
                     </div>
 
                     <!-- Tabela aviões -->
-                    <div class="card tabela-avioes">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">X</th>
-                                    <th scope="col">Y</th>
-                                    <th scope="col">R</th>
-                                    <th scope="col">A</th>
-                                    <th scope="col">V</th>
-                                    <th scope="col">D</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td> <input type="checkbox" aria-label="Checkbox for following text input"></td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                    <td>100</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                    <div class="card tabela-avioes mt-2">
+                        <table id="data-table" class="table"></table>
                     </div>
                 </div>
 
@@ -290,30 +264,14 @@
         </div>
 
         <!-- RADAR -->
-        <div class="col-sm mt-4">
-            <!-- <canvas id="radar" width="600" height="600" style="background-image: url('../assets/radar.png'); background-size: cover; background-repeat: no-repeat; background-position: center center;"></canvas> -->
+        <div id="sketch-holder" class="col-sm mt-4">
         </div>
     </div>
 
+    <script src="./src/Table.js"></script>
     <script src="./src/main.js "></script>
     <script src="./src/Utils.js"></script>
     <script src="./src/Plane.js"></script>
-
-    <script>
-        async function styleCanvas() {
-            var panel = document.getElementById('defaultCanvas0');
-            if (!panel) {
-                await new Promise(r => setTimeout(r, 200));
-                styleCanvas()
-            } else {
-                panel.style.marginLeft = "53%";
-                panel.style.marginTop = "-100%";
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", styleCanvas);
-
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
