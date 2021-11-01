@@ -27,6 +27,8 @@ class Plane {
 
     // seta as coordenadas cartesianas ou polar
     this.setCoordenadas();
+
+    this.imageAviao = loadImage('../assets/airplane.png');
   }
 
   render() {
@@ -34,10 +36,10 @@ class Plane {
     rectMode(CENTER);
     translate(this.cartesianX, this.cartesianY);
     rotate(-this.direcao);
-    fill(0);
-    stroke(255);
-    // triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
-    rect(0, 0, 40, 10);
+    noFill();
+    noStroke();
+    image(this.imageAviao, -20, -20);
+    rect(0, 0, 40, 40);
     pop();
   }
 
