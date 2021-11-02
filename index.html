@@ -236,7 +236,7 @@
 
                     <div class="card mt-2">
                         <div class="card-body">
-                            <form id="transformacao">
+                            <form id="distancia-aeroporto">
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="input-group mb-3">
@@ -244,20 +244,24 @@
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Distancia
                                                     mínima</span>
                                             </div>
-                                            <input class="form-control" type="number" id="avioes_proximos_aeroporto"
-                                                name="avioes_proximos_aeroporto">
+                                            <input 
+                                                class="form-control" 
+                                                type="number" 
+                                                id="distancia_min_aeroporto"
+                                                name="distancia_min_aeroporto"
+                                                required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="calcular" class="btn btn-primary btn-block">Aviões
+                                    <button type="submit" id="distancia-aeroporto" class="btn btn-primary btn-block">Aviões
                                         próximos ao aeroporto</button>
                                 </div>
                             </form>
                         </div>
                     </div>
 
-                    <textarea placeholder="Cálculos" class="mt-2" name="calculos" id="calculos" cols="70"
+                    <textarea placeholder="Resultados" class="mt-2" name="calculos" id="resultados-distancias" cols="70"
                         rows="10"></textarea>
                 </div>
 

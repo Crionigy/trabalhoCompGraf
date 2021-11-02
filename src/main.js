@@ -64,3 +64,15 @@ elementAplicarTransformacao.addEventListener("submit", (event) => {
     );
   }
 });
+
+
+const elementDistanciaMinAeroporto = document.getElementById("distancia-aeroporto");
+const TextAreaResultadosDistancias = document.getElementById('resultados-distancias');
+elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(event.target).entries());
+  for (let index = 0; index < planes.length; index++) {
+    let resultCalculoDistancia = planes[index].distanciaMinAeroporto(parseInt(data.distancia_min_aeroporto));
+    resultCalculoDistancia ? TextAreaResultadosDistancias.append(resultCalculoDistancia):undefined;
+  }
+});

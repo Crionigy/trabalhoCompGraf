@@ -104,4 +104,11 @@ class Plane {
         break;
     }
   }
+
+  distanciaMinAeroporto(distancia){
+    let distanciaAeroporto = dist(this.x,this.y, 0, 0);
+    if (distanciaAeroporto <= distancia){
+      return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${this.y}, Distancia: ${distanciaAeroporto} \n`;
+    }
+  }
 }
