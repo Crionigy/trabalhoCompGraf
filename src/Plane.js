@@ -1,8 +1,7 @@
 class Plane {
-  constructor(id, color, x, y, raio, angle, direcao, velocidade) {
+  constructor(id, x, y, raio, angle, direcao, velocidade) {
     this.selected = false;
     this.id = id;
-    this.color = color;
 
     // Coordenadas real do canvas
     this.x = x;

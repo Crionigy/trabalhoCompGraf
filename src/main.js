@@ -6,8 +6,8 @@ let heightCanvas = 600;
 // Iniciando table
 const dynamicTable = new DynamicTable(
   "data-table",
-  ["id", "selected", "x", "y", "raio", "angle", "direcao", "velocidade"],
-  ["Id", "Selecionado", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
+  ["selected", "id", "x", "y", "raio", "angle", "direcao", "velocidade"],
+  ["Selecionado", "Id", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
 );
 
 function setup() {
@@ -38,7 +38,6 @@ elementInserirAviao.addEventListener("submit", (event) => {
   planes.push(
     new Plane(
       PLANE_ID_COUNTER,
-      gerarCor(),
       parseInt(data.x),
       parseInt(data.y),
       parseInt(data.raio),
@@ -65,6 +64,8 @@ elementAplicarTransformacao.addEventListener("submit", (event) => {
   }
 });
 
+
+// Distancia para o Aeroporto
 const elementDistanciaMinAeroporto = document.getElementById("distancia-aeroporto");
 const TextAreaResultadosDistancias = document.getElementById("resultados-distancias");
 elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
@@ -80,6 +81,7 @@ elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
   }
 });
 
+// Distancia entre os Aviões
 const elementDistanciaAvioesProximos = document.getElementById("distancia-avioes-proximos");
 elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
   event.preventDefault();
