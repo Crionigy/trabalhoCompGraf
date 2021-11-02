@@ -1,49 +1,48 @@
-## Trabalho computação grafica
-
-[Demo Github Pages](https://crionigy.github.io/trabalhoCompGraf/)
+<h1 align="center">Trabalho computação grafica<h/1>
+  trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 <h2 align="center">Features</h2>
 
 ### Inserções
 
--[x] Inserção de avião com cordenada Cartesiana
+- [x] Inserção de avião com cordenada Cartesiana
 
--[x] Inserção de avião com cordenada Polar
+- [x] Inserção de avião com cordenada Polar
 
--[x] Mostrar no grafico usando cordenas Cartesianas
+- [x] Mostrar no grafico usando cordenas Cartesianas
 
 ### Modos
 
--[x] Modo Translandar
+- [x] Modo Translandar
 
--[ ] Modo Escalonar
+- [ ] Modo Escalonar
 
--[ ] Modo Rotacionar
+- [ ] Modo Rotacionar
 
 
 ### Tabela
 
--[x] Mostrar os Aviões inseridos na tabela
+- [x] Mostrar os Aviões inseridos na tabela
 
--[ ] Poder selecionar os Aviões na tabela
+- [ ] Poder selecionar os Aviões na tabela
 
--[ ] Aplicar os modos somente aos aviões selecionados
+- [ ] Aplicar os modos somente aos aviões selecionados
 
 
 ### Colisão 
 
--[ ] Calculo de ponto e tempo de colisão entre Aviões
+- [ ] Calculo de ponto e tempo de colisão entre Aviões
 
 
 ### Distancias
 
--[X] Calculo de distancia entre aviões
+- [X] Calculo de distancia entre aviões
 
--[x] Calculo de distacia dos aviões para o Aeroporto
+- [x] Calculo de distacia dos aviões para o Aeroporto
 
 ### Relatorio
 
--[ ] Relatório com todos os eventos
+- [ ] Relatório com todos os eventos
 
 <h2 align="center">Imagens</div><br><br>
 
