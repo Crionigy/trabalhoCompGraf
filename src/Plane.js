@@ -3,17 +3,15 @@ class Plane {
     this.selected = false;
     this.id = id;
     this.color = color;
-    // raioTriangulo
-    // this.raioTriangulo = 10;
 
     // Coordenadas real do canvas
     this.x = x;
     this.y = y;
-    
+
     // efeito visual
     this.direcao = direcao;
     this.velocidade = velocidade;
-    
+
     // coordenadas polares
     this.raio = raio;
     this.angle = angle;
@@ -28,7 +26,7 @@ class Plane {
     // seta as coordenadas cartesianas ou polar
     this.setCoordenadas();
 
-    this.imageAviao = loadImage('../assets/airplane.png');
+    this.imageAviao = loadImage("../assets/airplane.png");
   }
 
   render() {
@@ -43,34 +41,17 @@ class Plane {
     pop();
   }
 
-  edges() {
-    if (this.cartesianX > width + this.raioTriangulo) {
-      this.cartesianX = -this.raioTriangulo;
-    } else if (this.cartesianX < -this.raioTriangulo) {
-      this.cartesianX = width + this.raioTriangulo;
-    }
-    if (this.cartesianY > height + this.raioTriangulo) {
-      this.cartesianY = -this.raioTriangulo;
-    } else if (this.cartesianY < -this.raioTriangulo) {
-      this.cartesianY = height + this.raioTriangulo;
-    }
-  }
-
   setRotation(a) {
-    this.rotation = a;
-  }
-
-  turn() {
-    this.direcao += this.rotation;
+    this.direcao = a;
   }
 
   setCoordenadas() {
     switch (true) {
-      case (this.x !== 0 || this.y !== 0 ):
+      case this.x !== 0 || this.y !== 0:
         this.setCanvasCartesianPoint(this.x, this.y);
         break;
 
-      case (this.raio !== 0  || this.angle !== 0 ):
+      case this.raio !== 0 || this.angle !== 0:
         this.set_X_Y_ByCoordenadaPolar(this.raio, this.angle);
         break;
 
@@ -94,5 +75,33 @@ class Plane {
     let x = raio * cos(angle);
     let y = raio * sin(angle);
     this.setCanvasCartesianPoint(x, y);
+  }
+
+  transformacoes(option, x, y, angle) {
+    const modos = {
+      TRANSLANDAR: "TRANSLANDAR",
+      ESCALONAR: "ESCALONAR",
+      ROTACIONAR: "ROTACIONAR",
+    };
+
+    switch (option) {
+      case modos.TRANSLANDAR:
+        this.x += x;
+        this.y += y;
+        this.direcao += angle;
+        this.setCoordenadas();
+        break;
+      case modos.ESCALONAR:
+        console.log("esc");
+        break;
+
+      case modos.ROTACIONAR:
+        this.setRotation((this.direcao += angle));
+        break;
+
+      default:
+        console.log("default");
+        break;
+    }
   }
 }

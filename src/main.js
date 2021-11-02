@@ -3,11 +3,18 @@ let PLANE_ID_COUNTER = 0;
 let widthCanvas = 600;
 let heightCanvas = 600;
 
+// Iniciando table
+const dynamicTable = new DynamicTable(
+  "data-table",
+  ["selected", "x", "y", "raio", "angle", "direcao", "velocidade"],
+  ["Selecionado", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
+);
+
 function setup() {
   const canvas = createCanvas(widthCanvas, heightCanvas);
-  canvas.parent('sketch-holder');
-  
-  var imagePath = '/assets/desmosGraph.png';
+  canvas.parent("sketch-holder");
+
+  var imagePath = "/assets/desmosGraph.png";
   backgroundImage = loadImage(imagePath);
 
   angleMode(DEGREES);
@@ -18,24 +25,14 @@ function draw() {
 
   for (i = 0; i < planes.length; i++) {
     planes[i].render();
-    planes[i].turn();
   }
-}
 
-function keyPressed() {
-  if (keyCode == RIGHT_ARROW) {
-    for (i = 0; i < planes.length; i++) {
-      planes[i].setRotation(0.1);
-    }
-  }
+  dynamicTable.load(planes);
 }
-
-// Iniciando table
-const dynamicTable = new DynamicTable('data-table', ['selected', 'x', 'y', 'raio', 'angle', 'direcao', 'velocidade'], ['Selecionado', 'X', 'Y', 'Raio', 'Angle', 'Direção', 'Velocidade']);
 
 // Inserir Avião
-const element = document.getElementById("inserir");
-element.addEventListener("submit", (event) => {
+const elementInserirAviao = document.getElementById("inserir");
+elementInserirAviao.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = Object.fromEntries(new FormData(event.target).entries());
   planes.push(
@@ -51,5 +48,19 @@ element.addEventListener("submit", (event) => {
     )
   );
   PLANE_ID_COUNTER++;
-  dynamicTable.load(planes);
+});
+
+// Transormações
+const elementAplicarTransformacao = document.getElementById("transformacao");
+elementAplicarTransformacao.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(event.target).entries());
+  for (let index = 0; index < planes.length; index++) {
+    planes[index].transformacoes(
+      data.option,
+      parseInt(data.x),
+      parseInt(data.y),
+      parseInt(data.angle)
+    );
+  }
 });
