@@ -1,5 +1,6 @@
-<h1 align="center">Trabalho computação grafica<h/1>
-  trabalho desenvolvido para a materia de Computação Grafica da UNESC
+<h1 align="center">Trabalho computação grafica</h1>
+
+Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 <h2 align="center">Features</h2>
 
