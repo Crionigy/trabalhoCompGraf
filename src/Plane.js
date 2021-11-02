@@ -91,7 +91,9 @@ class Plane {
         this.setCoordenadas();
         break;
       case modos.ESCALONAR:
-        console.log("esc");
+        this.x *= x;
+        this.y *= y;
+        this.setCoordenadas();
         break;
 
       case modos.ROTACIONAR:

@@ -16,7 +16,7 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Modo Translandar
 
-- [ ] Modo Escalonar
+- [x] Modo Escalonar
 
 - [ ] Modo Rotacionar
 

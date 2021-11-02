@@ -57,9 +57,9 @@ elementAplicarTransformacao.addEventListener("submit", (event) => {
   for (let index = 0; index < planes.length; index++) {
     planes[index].transformacoes(
       data.option,
-      parseInt(data.x),
-      parseInt(data.y),
-      parseInt(data.angle)
+      parseFloat(data.x),
+      parseFloat(data.y),
+      parseFloat(data.angle)
     );
   }
 });
