@@ -6,8 +6,8 @@ let heightCanvas = 600;
 // Iniciando table
 const dynamicTable = new DynamicTable(
   "data-table",
-  ["selected", "x", "y", "raio", "angle", "direcao", "velocidade"],
-  ["Selecionado", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
+  ["id", "selected", "x", "y", "raio", "angle", "direcao", "velocidade"],
+  ["Id", "Selecionado", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
 );
 
 function setup() {
@@ -65,14 +65,31 @@ elementAplicarTransformacao.addEventListener("submit", (event) => {
   }
 });
 
-
 const elementDistanciaMinAeroporto = document.getElementById("distancia-aeroporto");
-const TextAreaResultadosDistancias = document.getElementById('resultados-distancias');
+const TextAreaResultadosDistancias = document.getElementById("resultados-distancias");
 elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = Object.fromEntries(new FormData(event.target).entries());
   for (let index = 0; index < planes.length; index++) {
-    let resultCalculoDistancia = planes[index].distanciaMinAeroporto(parseInt(data.distancia_min_aeroporto));
-    resultCalculoDistancia ? TextAreaResultadosDistancias.append(resultCalculoDistancia):undefined;
+    let resultCalculoDistancia = planes[index].distanciaParaOAeroporto(
+      parseInt(data.distancia_min_aeroporto)
+    );
+    resultCalculoDistancia
+      ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
+      : undefined;
+  }
+});
+
+const elementDistanciaAvioesProximos = document.getElementById("distancia-avioes-proximos");
+elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(event.target).entries());
+  for (i = 0; i < planes.length; i++) {
+    for (k = i + 1; k < planes.length; k++) {
+      let resultCalculoDistancia = planes[i].distanciaParaOutroAviao(planes[k], parseInt(data.distancia_avioes_proximos));
+      resultCalculoDistancia
+        ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
+        : undefined;
+    }
   }
 });

@@ -105,10 +105,17 @@ class Plane {
     }
   }
 
-  distanciaMinAeroporto(distancia){
+  distanciaParaOAeroporto(distancia){
     let distanciaAeroporto = dist(this.x,this.y, 0, 0);
     if (distanciaAeroporto <= distancia){
-      return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${this.y}, Distancia: ${distanciaAeroporto} \n`;
+      return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${this.y}, Distancia: ${distanciaAeroporto.toFixed(2)} \n`;
+    }
+  }
+
+  distanciaParaOutroAviao(planeToCompare, distancia){
+    let distanciaEntreAvioes = dist(this.x,this.y, planeToCompare.x, planeToCompare.y);
+    if (distanciaEntreAvioes <= distancia){
+      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(2)}\n`;
     }
   }
 }
