@@ -97,11 +97,11 @@ class Plane {
         break;
 
       case modos.ROTACIONAR:
-        this.setRotation((this.direcao += angle));
+        console.log("rotacionar");
         break;
 
       default:
-        console.log("default");
+        toastr.warning("Selecione uma das opções disponiveis");
         break;
     }
   }

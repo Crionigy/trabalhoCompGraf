@@ -10,6 +10,25 @@ const dynamicTable = new DynamicTable(
   ["Selecionado", "Id", "X", "Y", "Raio", "Angle", "Direção", "Velocidade"]
 );
 
+// Config Toast
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: false,
+  positionClass: "toast-bottom-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "300",
+  hideDuration: "1000",
+  timeOut: "1500",
+  extendedTimeOut: "1000",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};
+
 function setup() {
   const canvas = createCanvas(widthCanvas, heightCanvas);
   canvas.parent("sketch-holder");
@@ -33,65 +52,93 @@ function draw() {
 // Inserir Avião
 const elementInserirAviao = document.getElementById("inserir");
 elementInserirAviao.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target).entries());
-  planes.push(
-    new Plane(
-      PLANE_ID_COUNTER,
-      parseInt(data.x),
-      parseInt(data.y),
-      parseInt(data.raio),
-      parseInt(data.angle),
-      parseInt(data.direcao),
-      parseInt(data.velocidade)
-    )
-  );
-  PLANE_ID_COUNTER++;
+  try {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.target).entries());
+    planes.push(
+      new Plane(
+        PLANE_ID_COUNTER,
+        parseInt(data.x),
+        parseInt(data.y),
+        parseInt(data.raio),
+        parseInt(data.angle),
+        parseInt(data.direcao),
+        parseInt(data.velocidade)
+      )
+    );
+    PLANE_ID_COUNTER++;
+    toastr.success("Avião inserido");
+  } catch (err) {
+    toastr.error("Erro ao inserir avião");
+  }
 });
 
 // Transormações
 const elementAplicarTransformacao = document.getElementById("transformacao");
 elementAplicarTransformacao.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target).entries());
-  for (let index = 0; index < planes.length; index++) {
-    planes[index].transformacoes(
-      data.option,
-      parseFloat(data.x),
-      parseFloat(data.y),
-      parseFloat(data.angle)
-    );
+  try {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.target).entries());
+    for (let index = 0; index < planes.length; index++) {
+      planes[index].transformacoes(
+        data.option,
+        parseFloat(data.x),
+        parseFloat(data.y),
+        parseFloat(data.angle)
+      );
+    }
+    toastr.success("Tranformação realizada com sucesso");
+  } catch (err) {
+    toastr.error("Erro ao realizar Transformação");
   }
 });
-
 
 // Distancia para o Aeroporto
-const elementDistanciaMinAeroporto = document.getElementById("distancia-aeroporto");
-const TextAreaResultadosDistancias = document.getElementById("resultados-distancias");
+const elementDistanciaMinAeroporto = document.getElementById(
+  "distancia-aeroporto"
+);
+const TextAreaResultadosDistancias = document.getElementById(
+  "resultados-distancias"
+);
 elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target).entries());
-  for (let index = 0; index < planes.length; index++) {
-    let resultCalculoDistancia = planes[index].distanciaParaOAeroporto(
-      parseInt(data.distancia_min_aeroporto)
-    );
-    resultCalculoDistancia
-      ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
-      : undefined;
-  }
-});
-
-// Distancia entre os Aviões
-const elementDistanciaAvioesProximos = document.getElementById("distancia-avioes-proximos");
-elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target).entries());
-  for (i = 0; i < planes.length; i++) {
-    for (k = i + 1; k < planes.length; k++) {
-      let resultCalculoDistancia = planes[i].distanciaParaOutroAviao(planes[k], parseInt(data.distancia_avioes_proximos));
+  try {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.target).entries());
+    for (let index = 0; index < planes.length; index++) {
+      let resultCalculoDistancia = planes[index].distanciaParaOAeroporto(
+        parseInt(data.distancia_min_aeroporto)
+      );
       resultCalculoDistancia
         ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
         : undefined;
     }
+    toastr.success("Calculado distancia entre aviões e aeroporto");
+  } catch (err) {
+    toastr.error("Erro ao calcular distancia entre aviões e aeroporto");
+  }
+});
+
+// Distancia entre os Aviões
+const elementDistanciaAvioesProximos = document.getElementById(
+  "distancia-avioes-proximos"
+);
+elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
+  try {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.target).entries());
+    for (i = 0; i < planes.length; i++) {
+      for (k = i + 1; k < planes.length; k++) {
+        let resultCalculoDistancia = planes[i].distanciaParaOutroAviao(
+          planes[k],
+          parseInt(data.distancia_avioes_proximos)
+        );
+        resultCalculoDistancia
+          ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
+          : undefined;
+      }
+    }
+    toastr.success("Calculado distancia entre aviões");
+  } catch (err) {
+    toastr.error("Erro ao calcular distancia entre aviões");
   }
 });

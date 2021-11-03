@@ -9,6 +9,12 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"
+        integrity="sha512-lbwH47l/tPXJYG9AcFNoJaTMhGvYWhVM9YI43CT+uteTRRaiLCui8snIgyAN8XWgNjNhCqlAUdzZptso6OCoFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css"
+        integrity="sha512-oe8OpYjBaDWPt2VmSFR+qYOdnTjeV9QPLJUeqZyprDEQvQLJ9C5PCFclxwNuvb/GQgQngdCXzKSFltuHD3eCxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -123,12 +129,7 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="option">Modo</label>
                                         </div>
-                                        <select 
-                                            class="custom-select" 
-                                            id="option"
-                                            name="option" 
-                                            required
-                                        >
+                                        <select class="custom-select" id="option" name="option" required>
                                             <option selected value="">Escolher...</option>
                                             <option value="TRANSLANDAR">Translandar</option>
                                             <option value="ESCALONAR">Escalonar</option>
@@ -151,8 +152,8 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Y</span>
                                             </div>
-                                            <input class="form-control" placeholder="Y" type="number" id="y"
-                                                name="y" min="-300" max="300" value="0" step="0.01">
+                                            <input class="form-control" placeholder="Y" type="number" id="y" name="y"
+                                                min="-300" max="300" value="0" step="0.01">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -227,7 +228,8 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="distancia-avioes-proximos" class="btn btn-primary btn-block">Aviões
+                                    <button type="submit" id="distancia-avioes-proximos"
+                                        class="btn btn-primary btn-block">Aviões
                                         próximos</button>
                                 </div>
                             </form>
@@ -244,17 +246,14 @@
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Distancia
                                                     mínima</span>
                                             </div>
-                                            <input 
-                                                class="form-control" 
-                                                type="number" 
-                                                id="distancia_min_aeroporto"
-                                                name="distancia_min_aeroporto"
-                                                required>
+                                            <input class="form-control" type="number" id="distancia_min_aeroporto"
+                                                name="distancia_min_aeroporto" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" id="distancia-aeroporto" class="btn btn-primary btn-block">Aviões
+                                    <button type="submit" id="distancia-aeroporto"
+                                        class="btn btn-primary btn-block">Aviões
                                         próximos ao aeroporto</button>
                                 </div>
                             </form>
