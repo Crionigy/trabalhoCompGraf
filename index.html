@@ -35,10 +35,6 @@
                     <a class="nav-link" id="distancia-tab" data-toggle="tab" href="#distancia" role="tab"
                         aria-controls="distancia" aria-selected="false">Distancia</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="relatorio-tab" data-toggle="tab" href="#relatorio" role="tab"
-                        aria-controls="relatorio" aria-selected="false">Relatório</a>
-                </li>
             </ul>
 
             <div class="tab-content" id="myTabContent">
@@ -67,7 +63,7 @@
                                                     id="inputGroup-sizing-default">Raio</span>
                                             </div>
                                             <input class="form-control" placeholder="Raio" type="number" id="raio"
-                                                name="raio" min="0" max="360" value="0">
+                                                name="raio" min="0" max="300" value="0">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -77,7 +73,7 @@
                                                     id="inputGroup-sizing-default">Direção</span>
                                             </div>
                                             <input class="form-control" placeholder="Direção" type="number" id="direcao"
-                                                name="direcao" min="0" max="360" value="0">
+                                                name="direcao" min="-360" max="360" value="0">
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +94,7 @@
                                                     id="inputGroup-sizing-default">Angle</span>
                                             </div>
                                             <input class="form-control" placeholder="Angle" type="number" id="angle"
-                                                name="angle" min="0" max="360" value="0">
+                                                name="angle" min="-360" max="360" value="0">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -108,7 +104,7 @@
                                                     id="inputGroup-sizing-default">Velocidade</span>
                                             </div>
                                             <input class="form-control" placeholder="Velocidade" type="number"
-                                                id="velocidade" name="velocidade" min="0" max="360" value="0">
+                                                id="velocidade" name="velocidade" value="0">
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +159,7 @@
                                                     id="inputGroup-sizing-default">Ângulo</span>
                                             </div>
                                             <input class="form-control" placeholder="Ângulo" type="number" id="angle"
-                                                name="angle" min="0" max="360" value="0" step="0.01">
+                                                name="angle" value="0" step="0.01">
                                         </div>
                                     </div>
                                 </div>
@@ -261,12 +257,6 @@
                     </div>
 
                     <textarea placeholder="Resultados" class="mt-2" name="calculos" id="resultados-distancias" cols="70"
-                        rows="10"></textarea>
-                </div>
-
-                <!-- ABA RELATORIO -->
-                <div class="tab-pane fade" id="relatorio" role="tabpanel" aria-labelledby="relatorio-tab">
-                    <textarea placeholder="Relatório" class="mt-2" name="calculos" id="calculos" cols="70"
                         rows="10"></textarea>
                 </div>
             </div>

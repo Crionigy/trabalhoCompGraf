@@ -103,15 +103,20 @@ const TextAreaResultadosDistancias = document.getElementById(
 elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
   try {
     event.preventDefault();
+
     const data = Object.fromEntries(new FormData(event.target).entries());
+    let resultCalculoDistancia = "";
+
     for (let index = 0; index < planes.length; index++) {
-      let resultCalculoDistancia = planes[index].distanciaParaOAeroporto(
+      resultCalculoDistancia += planes[index].distanciaParaOAeroporto(
         parseInt(data.distancia_min_aeroporto)
       );
-      resultCalculoDistancia
-        ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
-        : undefined;
     }
+
+    resultCalculoDistancia
+      ? (TextAreaResultadosDistancias.innerText = resultCalculoDistancia)
+      : (TextAreaResultadosDistancias.innerText = `Sem aviões próximos ao Aeroporto, Distancia Informada: ${data.distancia_min_aeroporto}`);
+
     toastr.success("Calculado distancia entre aviões e aeroporto");
   } catch (err) {
     toastr.error("Erro ao calcular distancia entre aviões e aeroporto");
@@ -125,18 +130,20 @@ const elementDistanciaAvioesProximos = document.getElementById(
 elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
   try {
     event.preventDefault();
+
     const data = Object.fromEntries(new FormData(event.target).entries());
+    let resultCalculoDistancia = "";
+
     for (i = 0; i < planes.length; i++) {
       for (k = i + 1; k < planes.length; k++) {
-        let resultCalculoDistancia = planes[i].distanciaParaOutroAviao(
-          planes[k],
-          parseInt(data.distancia_avioes_proximos)
-        );
-        resultCalculoDistancia
-          ? TextAreaResultadosDistancias.append(resultCalculoDistancia)
-          : undefined;
+        resultCalculoDistancia += planes[i].distanciaParaOutroAviao(planes[k], parseInt(data.distancia_avioes_proximos));
       }
     }
+
+    resultCalculoDistancia
+      ? (TextAreaResultadosDistancias.innerText = resultCalculoDistancia)
+      : (TextAreaResultadosDistancias.innerText = `Sem aviões próximos uns aos outros, Distancia Informada: ${data.distancia_avioes_proximos}`);
+
     toastr.success("Calculado distancia entre aviões");
   } catch (err) {
     toastr.error("Erro ao calcular distancia entre aviões");

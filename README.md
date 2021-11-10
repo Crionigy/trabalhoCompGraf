@@ -19,6 +19,13 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 - [x] Modo Escalonar
 
 - [ ] Modo Rotacionar
+    Translandar os valores informados em x e y (diminuir eles)
+    aplicar a rotação 
+    Translandar os valores informados em x e y (aumentar eles)
+
+
+### Anotações
+    Angulos que são dor de cabeça: 11 graus, 90 graus, 270 graus 
 
 
 ### Tabela
@@ -43,7 +50,7 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 ### Relatorio
 
-- [ ] Relatório com todos os eventos
+- [x] Relatório com todos os eventos
 
 <h2 align="center">Imagens</div><br><br>
 

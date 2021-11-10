@@ -97,7 +97,11 @@ class Plane {
         break;
 
       case modos.ROTACIONAR:
-        console.log("rotacionar");
+        // let novoX = this.x * cos(angle) - this.y * sin(angle);
+        // let novoY = this.y * cos(angle) + this.x * sin(angle);
+        // this.x = parseFloat(novoX.toFixed(2));
+        // this.y = parseFloat(novoY.toFixed(2));
+        // this.setCoordenadas();
         break;
 
       default:
@@ -106,17 +110,26 @@ class Plane {
     }
   }
 
-  distanciaParaOAeroporto(distancia){
-    let distanciaAeroporto = dist(this.x,this.y, 0, 0);
-    if (distanciaAeroporto <= distancia){
-      return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${this.y}, Distancia: ${distanciaAeroporto.toFixed(2)} \n`;
+  distanciaParaOAeroporto(distancia) {
+    let distanciaAeroporto = dist(this.x, this.y, 0, 0);
+    if (distanciaAeroporto <= distancia) {
+      return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${
+        this.y
+      }, Distancia: ${distanciaAeroporto.toFixed(2)} \n`;
     }
+    return '';
   }
 
-  distanciaParaOutroAviao(planeToCompare, distancia){
-    let distanciaEntreAvioes = dist(this.x,this.y, planeToCompare.x, planeToCompare.y);
-    if (distanciaEntreAvioes <= distancia){
-      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(2)}\n`;
+  distanciaParaOutroAviao(planeToCompare, distancia) {
+    let distanciaEntreAvioes = dist(
+      this.x,
+      this.y,
+      planeToCompare.x,
+      planeToCompare.y
+    );
+    if (distanciaEntreAvioes <= distancia) {
+      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(2)} \n`;
     }
+    return '';
   }
 }
