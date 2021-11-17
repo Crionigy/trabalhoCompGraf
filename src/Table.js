@@ -20,7 +20,7 @@ class DynamicTable {
             names.forEach( name => {
                 let c = item ? item[name+''] : name;
                 if (name === "selected"){
-                    row += `<td  style="text-align: center; vertical-align: middle;"><input type="checkbox" name="${'aviao-'+item['id']}" value="${item[name+'']}" onclick=onChangeSelecionarAviao(${item['id']}) ></td>`;
+                    row += `<td  style="text-align: center; vertical-align: middle;"><input type="checkbox" name="${'aviao-'+item['id']}" ${c ? 'checked' : ''} onclick=onChangeSelecionarAviao(${item['id']}) ></td>`;
                 }
                 else{
                     row += '<td>' + c + '</td>';
