@@ -37,6 +37,8 @@ function setup() {
   backgroundImage = loadImage(imagePath);
 
   angleMode(DEGREES);
+
+  dynamicTable.load(planes);
 }
 
 function draw() {
@@ -45,8 +47,10 @@ function draw() {
   for (i = 0; i < planes.length; i++) {
     planes[i].render();
   }
+}
 
-  dynamicTable.load(planes);
+function onChangeSelecionarAviao(id) {
+  planes[id].selected = !planes[id].selected;
 }
 
 // Inserir Avião
@@ -67,6 +71,9 @@ elementInserirAviao.addEventListener("submit", (event) => {
       )
     );
     PLANE_ID_COUNTER++;
+
+    dynamicTable.load(planes);
+
     toastr.success("Avião inserido");
   } catch (err) {
     toastr.error("Erro ao inserir avião");
@@ -80,13 +87,18 @@ elementAplicarTransformacao.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.target).entries());
     for (let index = 0; index < planes.length; index++) {
-      planes[index].transformacoes(
-        data.option,
-        parseFloat(data.x),
-        parseFloat(data.y),
-        parseFloat(data.angle)
-      );
+      if (planes[index].selected) {
+        planes[index].transformacoes(
+          data.option,
+          parseFloat(data.x),
+          parseFloat(data.y),
+          parseFloat(data.angle)
+        );
+      }
     }
+
+    dynamicTable.load(planes);
+    
     toastr.success("Tranformação realizada com sucesso");
   } catch (err) {
     toastr.error("Erro ao realizar Transformação");
