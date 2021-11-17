@@ -32,9 +32,9 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Mostrar os Aviões inseridos na tabela
 
-- [ ] Poder selecionar os Aviões na tabela
+- [x] Poder selecionar os Aviões na tabela
 
-- [ ] Aplicar os modos somente aos aviões selecionados
+- [x] Aplicar os modos somente aos aviões selecionados
 
 
 ### Colisão 
