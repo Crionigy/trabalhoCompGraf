@@ -97,11 +97,13 @@ class Plane {
         break;
 
       case modos.ROTACIONAR:
-        // let novoX = this.x * cos(angle) - this.y * sin(angle);
-        // let novoY = this.y * cos(angle) + this.x * sin(angle);
-        // this.x = parseFloat(novoX.toFixed(2));
-        // this.y = parseFloat(novoY.toFixed(2));
-        // this.setCoordenadas();
+        this.x -= x;
+        this.y -= y;
+        this.direcao += angle;
+        this.setCoordenadas();
+        this.x += x;
+        this.y += y;
+        this.setCoordenadas();
         break;
 
       default:

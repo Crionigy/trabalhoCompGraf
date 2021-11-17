@@ -18,7 +18,7 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Modo Escalonar
 
-- [ ] Modo Rotacionar
+- [x] Modo Rotacionar
     Translandar os valores informados em x e y (diminuir eles)
     aplicar a rotação 
     Translandar os valores informados em x e y (aumentar eles)
