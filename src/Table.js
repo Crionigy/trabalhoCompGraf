@@ -23,7 +23,7 @@ class DynamicTable {
                     row += `<td  style="text-align: center; vertical-align: middle;"><input type="checkbox" name="${'aviao-'+item['id']}" ${c ? 'checked' : ''} onclick=onChangeSelecionarAviao(${item['id']}) ></td>`;
                 }
                 else{
-                    row += '<td>' + c + '</td>';
+                    row += '<td>' + (typeof c === 'number' ? parseFloat(c.toFixed(4)) : c) + '</td>';
                 }
             });
         }
