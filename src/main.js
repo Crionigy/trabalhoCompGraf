@@ -62,12 +62,12 @@ elementInserirAviao.addEventListener("submit", (event) => {
     planes.push(
       new Plane(
         PLANE_ID_COUNTER,
-        parseInt(data.x),
-        parseInt(data.y),
-        parseInt(data.raio),
-        parseInt(data.angle),
-        parseInt(data.direcao),
-        parseInt(data.velocidade)
+        parseFloat(data.x),
+        parseFloat(data.y),
+        parseFloat(data.raio),
+        parseFloat(data.angle),
+        parseFloat(data.direcao),
+        parseFloat(data.velocidade)
       )
     );
     PLANE_ID_COUNTER++;
@@ -118,15 +118,16 @@ elementDistanciaMinAeroporto.addEventListener("submit", (event) => {
 
     const data = Object.fromEntries(new FormData(event.target).entries());
     let resultCalculoDistancia = "";
+    TextAreaResultadosDistancias.innerText = "";
 
     for (let index = 0; index < planes.length; index++) {
       resultCalculoDistancia += planes[index].distanciaParaOAeroporto(
-        parseInt(data.distancia_min_aeroporto)
+        parseFloat(data.distancia_min_aeroporto)
       );
     }
 
     resultCalculoDistancia
-      ? (TextAreaResultadosDistancias.innerText = resultCalculoDistancia)
+      ? (TextAreaResultadosDistancias.append(resultCalculoDistancia))
       : (TextAreaResultadosDistancias.innerText = `Sem aviões próximos ao Aeroporto, Distancia Informada: ${data.distancia_min_aeroporto}`);
 
     toastr.success("Calculado distancia entre aviões e aeroporto");
@@ -144,20 +145,48 @@ elementDistanciaAvioesProximos.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const data = Object.fromEntries(new FormData(event.target).entries());
+    
+    TextAreaResultadosDistancias.innerText = "";
+    
     let resultCalculoDistancia = "";
 
     for (i = 0; i < planes.length; i++) {
       for (k = i + 1; k < planes.length; k++) {
-        resultCalculoDistancia += planes[i].distanciaParaOutroAviao(planes[k], parseInt(data.distancia_avioes_proximos));
+        resultCalculoDistancia += planes[i].distanciaParaOutroAviao(planes[k], parseFloat(data.distancia_avioes_proximos));
       }
     }
 
     resultCalculoDistancia
-      ? (TextAreaResultadosDistancias.innerText = resultCalculoDistancia)
+      ? (TextAreaResultadosDistancias.append(resultCalculoDistancia))
       : (TextAreaResultadosDistancias.innerText = `Sem aviões próximos uns aos outros, Distancia Informada: ${data.distancia_avioes_proximos}`);
 
     toastr.success("Calculado distancia entre aviões");
   } catch (err) {
     toastr.error("Erro ao calcular distancia entre aviões");
+  }
+});
+
+
+// Rota colisão
+const elementDistanciaRotaColisao = document.getElementById(
+  "rota-colisao"
+);
+const TextAreaResultadosColisao = document.getElementById(
+  "resultados-colisao"
+);
+elementDistanciaRotaColisao.addEventListener("submit", (event) => {
+  try {
+    event.preventDefault();
+
+    TextAreaResultadosColisao.innerText = "";
+
+    const data = Object.fromEntries(new FormData(event.target).entries());
+    let resultCalculoDistancia = calculaRotaColisao(parseFloat(data.tempo_minimo));
+
+    TextAreaResultadosColisao.append(resultCalculoDistancia);
+
+    toastr.success("Calculado rotas de colisão");
+  } catch (err) {
+    toastr.error("Erro ao calcular rotas de colisão");
   }
 });

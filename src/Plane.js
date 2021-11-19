@@ -117,7 +117,7 @@ class Plane {
     if (distanciaAeroporto <= distancia) {
       return `Calculo Distancia Aeroporto: ID:${this.id}, X: ${this.x}, Y:${
         this.y
-      }, Distancia: ${distanciaAeroporto.toFixed(2)} \n`;
+      }, Distancia: ${distanciaAeroporto.toFixed(4)} \n`;
     }
     return '';
   }
@@ -130,7 +130,7 @@ class Plane {
       planeToCompare.y
     );
     if (distanciaEntreAvioes <= distancia) {
-      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(2)} \n`;
+      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(4)} \n`;
     }
     return '';
   }

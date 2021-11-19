@@ -39,7 +39,7 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 ### Colisão 
 
-- [ ] Calculo de ponto e tempo de colisão entre Aviões
+- [x] Calculo de ponto e tempo de colisão entre Aviões
 
 
 ### Distancias
@@ -52,7 +52,13 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Relatório com todos os eventos
 
+### A mais
+
+- [ ] polir o projeto
+
 <h2 align="center">Imagens</div><br><br>
 
 ![1](.github/1.png)
 ![2](.github/2.png)
+![3](.github/3.png)
+![4](.github/4.png)
