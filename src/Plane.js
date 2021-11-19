@@ -51,7 +51,7 @@ class Plane {
         break;
 
       case this.raio !== 0 || this.angle !== 0:
-        this.set_X_Y_ByCoordenadaPolar(this.raio, this.angle);
+        this.setXYByCoordenadaPolar(this.raio, this.angle);
         break;
 
       default:
@@ -60,6 +60,23 @@ class Plane {
     }
   }
 
+  setRaioAnguloByCoordenadaCartesian(x, y) {
+    this.raio = parseFloat(
+      Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(4)
+    );
+    this.angle = parseFloat(Math.atan(y / x).toFixed(4));
+  }
+
+  setXYByCoordenadaPolar(raio, angle) {
+    let x = raio * cos(angle);
+    let y = raio * sin(angle);
+    
+    this.x = parseFloat(x.toFixed(4));
+    this.y = parseFloat(y.toFixed(4));
+
+    this.setCanvasCartesianPoint(this.x, this.y);
+  }
+  
   setCanvasCartesianPoint(x, y) {
     var midWidth = width / 2;
     var midHeight = height / 2;
@@ -68,12 +85,8 @@ class Plane {
 
     this.cartesianX = cartesianX;
     this.cartesianY = cartesianY;
-  }
 
-  set_X_Y_ByCoordenadaPolar(raio, angle) {
-    let x = raio * cos(angle);
-    let y = raio * sin(angle);
-    this.setCanvasCartesianPoint(x, y);
+    this.setRaioAnguloByCoordenadaCartesian(this.cartesianX, this.cartesianY);
   }
 
   transformacoes(option, x, y, angle) {
@@ -119,7 +132,7 @@ class Plane {
         this.y
       }, Distancia: ${distanciaAeroporto.toFixed(4)} \n`;
     }
-    return '';
+    return "";
   }
 
   distanciaParaOutroAviao(planeToCompare, distancia) {
@@ -130,8 +143,12 @@ class Plane {
       planeToCompare.y
     );
     if (distanciaEntreAvioes <= distancia) {
-      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${this.id} para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(4)} \n`;
+      return `Calculo Distancia Entre Aviões: Distancia entre o Avião: ${
+        this.id
+      } para o Avião: ${planeToCompare.id} é: ${distanciaEntreAvioes.toFixed(
+        4
+      )} \n`;
     }
-    return '';
+    return "";
   }
 }
