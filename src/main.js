@@ -47,10 +47,17 @@ function draw() {
   for (i = 0; i < planes.length; i++) {
     planes[i].render();
   }
+
+  disableButtonWithoutPlaneSelected();
 }
 
 function onChangeSelecionarAviao(id) {
   planes[id].selected = !planes[id].selected;
+}
+
+function deletePlane(){
+  planes = planes.filter(plane => !plane.selected);
+  dynamicTable.load(planes);
 }
 
 // Inserir Avião
@@ -73,6 +80,8 @@ elementInserirAviao.addEventListener("submit", (event) => {
     PLANE_ID_COUNTER++;
 
     dynamicTable.load(planes);
+
+    cleanInputsFormInserir();
 
     toastr.success("Avião inserido");
   } catch (err) {

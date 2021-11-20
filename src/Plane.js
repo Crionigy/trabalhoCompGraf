@@ -64,7 +64,7 @@ class Plane {
     this.raio = parseFloat(
       Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(4)
     );
-    this.angle = parseFloat(Math.atan(y / x).toFixed(4));
+    this.angle = isNaN(parseFloat(Math.atan((y / x)).toFixed(4))) ? 0 : parseFloat(Math.atan(y / x).toFixed(4));
   }
 
   setXYByCoordenadaPolar(raio, angle) {
@@ -86,7 +86,7 @@ class Plane {
     this.cartesianX = cartesianX;
     this.cartesianY = cartesianY;
 
-    this.setRaioAnguloByCoordenadaCartesian(this.cartesianX, this.cartesianY);
+    // this.setRaioAnguloByCoordenadaCartesian(x, y);
   }
 
   transformacoes(option, x, y, angle) {

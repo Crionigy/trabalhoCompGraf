@@ -103,7 +103,11 @@ function calculaRotaColisao(tempoSeguro) {
 
             tempoAbsDiferenca = (Math.abs(t1 - t2) * 60 * 60);
 
-            aviso += "Avião " + planes[i].id + " -> " + "Avião " + planes[j].id + "\nPonto de colisão: (" + xCol.toFixed(4) + ";" + yCol.toFixed(4) + ")" + "\nDiferença de tempo: " + tempoAbsDiferenca.toFixed(4) + "s\n";
+            aviso += "Avião " + planes[i].id + " -> " + "Avião " + planes[j].id 
+                    + "\nPonto de colisão: (" + xCol.toFixed(4) + ";" + yCol.toFixed(4) + ")"
+                    + "\nDiferença de tempo: " + tempoAbsDiferenca.toFixed(4) + "s\n"
+                    + "Avião " + planes[i].id + ": " + parseFloat((t1 * 60 * 60).toFixed(4)) + "s\n"
+                    + "Avião " + planes[j].id + ": " + parseFloat((t2 * 60 * 60).toFixed(4)) + "s\n";
 
         }
     }
@@ -122,4 +126,20 @@ function isAnguloIgualComColisao( airplane1, airplane2) {
     } else {
         return (airplane1.direcao == 180 || airplane1.direcao == 0) && (airplane1.y == airplane2.y);
     }
+}
+
+function disableButtonWithoutPlaneSelected() {
+    const buttonAplicar = document.getElementById("aplicar_transformacao");
+    const buttonDeletePlanes = document.getElementById("btn-delete-planes");
+    if (planes.filter((plane) => plane.selected).length) {
+      buttonAplicar.disabled = false;
+      buttonDeletePlanes.disabled = false;
+    } else {
+      buttonAplicar.disabled = true;
+      buttonDeletePlanes.disabled = true;
+    }
+}
+  
+function cleanInputsFormInserir() {
+    document.getElementById("inserir").reset();
 }
