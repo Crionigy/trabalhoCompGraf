@@ -58,6 +58,12 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Deletar aviões
 
+- [x] Selecionar modo ao inserir
+
+- [ ] validar tempo na colisão
+
+- [x] informação de tempo de chegada ao ponto de colisão
+
 <h2 align="center">Imagens</div><br><br>
 
 ![1](.github/1.png)

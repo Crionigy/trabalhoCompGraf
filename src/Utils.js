@@ -132,14 +132,57 @@ function disableButtonWithoutPlaneSelected() {
     const buttonAplicar = document.getElementById("aplicar_transformacao");
     const buttonDeletePlanes = document.getElementById("btn-delete-planes");
     if (planes.filter((plane) => plane.selected).length) {
-      buttonAplicar.disabled = false;
-      buttonDeletePlanes.disabled = false;
+        buttonAplicar.disabled = false;
     } else {
-      buttonAplicar.disabled = true;
-      buttonDeletePlanes.disabled = true;
+        buttonAplicar.disabled = true;
+    }
+
+    if(planes.length){
+        buttonDeletePlanes.disabled = false;
+    } else {
+        buttonDeletePlanes.disabled = true;    
     }
 }
   
 function cleanInputsFormInserir() {
     document.getElementById("inserir").reset();
+}
+
+function onChangeModoInserir(){
+    const optionInserir = document.getElementById("option_modo_inserir");
+    switch (true) {
+      case optionInserir.value === 'CARTESIANO':
+        document.querySelector("#raio").value = 0;
+        document.querySelector("#angle").value = 0;
+
+        document.querySelector("#x").readOnly = false;
+        document.querySelector("#y").readOnly = false;
+
+        document.querySelector("#raio").readOnly =  true;
+        document.querySelector("#angle").readOnly = true;
+        break;
+
+      case optionInserir.value === 'POLAR':
+        document.querySelector("#x").value = 0;
+        document.querySelector("#y").value = 0;
+
+        document.querySelector("#raio").readOnly =  false;
+        document.querySelector("#angle").readOnly = false;
+
+        document.querySelector("#x").readOnly = true;
+        document.querySelector("#y").readOnly = true;
+        break;
+
+      default:
+        document.querySelector("#x").value = 0;
+        document.querySelector("#y").value = 0;
+        document.querySelector("#raio").value =  0;
+        document.querySelector("#angle").value = 0;
+
+        document.querySelector("#raio").readOnly =  false;
+        document.querySelector("#angle").readOnly = false;
+        document.querySelector("#x").readOnly = false;
+        document.querySelector("#y").readOnly = false;
+        break;
+    }
 }

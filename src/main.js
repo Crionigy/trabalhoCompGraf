@@ -55,8 +55,9 @@ function onChangeSelecionarAviao(id) {
   planes[id].selected = !planes[id].selected;
 }
 
-function deletePlane(){
-  planes = planes.filter(plane => !plane.selected);
+function deletePlanes(){
+  planes = [];
+  PLANE_ID_COUNTER = 0;
   dynamicTable.load(planes);
 }
 

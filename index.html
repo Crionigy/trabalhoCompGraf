@@ -47,6 +47,22 @@
                         <div class="card-body">
                             <form id="inserir">
                                 <div class="form-row">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="option">Modo</label>
+                                        </div>
+                                        <select class="custom-select" 
+                                                id="option_modo_inserir" 
+                                                name="option_modo_inserir" 
+                                                required
+                                                onchange="onChangeModoInserir()">
+                                            <option selected value="">Escolher...</option>
+                                            <option value="CARTESIANO">Cartesiano</option>
+                                            <option value="POLAR">Polar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="col">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -177,7 +193,7 @@
                     </div>
 
                     <div class="card mt-2">
-                        <button type="button"  id="btn-delete-planes" class="btn btn-danger btn-block" onclick=deletePlane()>Excluir aviões selecionados</button>
+                        <button type="button"  id="btn-delete-planes" class="btn btn-outline-danger btn-block" onclick=deletePlanes()>Excluir aviões</button>
                     </div>
                 </div>
 
