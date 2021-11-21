@@ -64,6 +64,8 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] informação de tempo de chegada ao ponto de colisão
 
+- [x] sempre ser necessario informar pelo menos zero nos inputs
+
 <h2 align="center">Imagens</div><br><br>
 
 ![1](.github/1.png)
