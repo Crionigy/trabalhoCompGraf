@@ -18,15 +18,10 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Modo Escalonar
 
-- [ ] Modo Rotacionar
-    Translandar os valores informados em x e y (diminuir eles)
-    aplicar a rotação 
-    Translandar os valores informados em x e y (aumentar eles)
-
+- [x] Modo Rotacionar
 
 ### Anotações
     Angulos que são dor de cabeça: 11 graus, 90 graus, 270 graus 
-
 
 ### Tabela
 
@@ -41,7 +36,6 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] Calculo de ponto e tempo de colisão entre Aviões
 
-
 ### Distancias
 
 - [X] Calculo de distancia entre aviões
@@ -54,7 +48,7 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 ### A mais
 
-- [ ] polir o projeto
+- [x] polir o projeto
 
 - [x] Deletar aviões
 

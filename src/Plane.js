@@ -115,12 +115,23 @@ class Plane {
         break;
 
       case modos.ROTACIONAR:
-        this.x -= x;
-        this.y -= y;
-        this.direcao += angle;
+        let _x = 0;
+        let _y = 0;
+
+        this.x = this.x - x;
+        this.y = this.y - y;
+
         this.setCoordenadas();
-        this.x += x;
-        this.y += y;
+
+        _x = ((this.x * cos(angle)) - (this.y * sin(angle)));
+        _y = ((this.y * cos(angle)) + (this.x * sin(angle)));
+
+        this.x = _x;
+        this.y = _y;
+
+        this.x = this.x + x;
+        this.y = this.y + y;
+
         this.setCoordenadas();
         break;
 

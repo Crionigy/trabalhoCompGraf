@@ -102,7 +102,7 @@ function calculaRotaColisao(tempoSeguro) {
             t2 = d2 / planes[j].velocidade;
 
             tempoAbsDiferenca = (Math.abs(t1 - t2) * 60 * 60);
-            hasColision = tempoAbsDiferenca < tempoSeguro;
+            hasColision = tempoAbsDiferenca <= tempoSeguro;
 
             if (hasColision) {
                 aviso += "Avião " + planes[i].id + " -> " + "Avião " + planes[j].id 
