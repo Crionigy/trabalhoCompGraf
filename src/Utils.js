@@ -102,20 +102,21 @@ function calculaRotaColisao(tempoSeguro) {
             t2 = d2 / planes[j].velocidade;
 
             tempoAbsDiferenca = (Math.abs(t1 - t2) * 60 * 60);
+            hasColision = tempoAbsDiferenca < tempoSeguro;
 
-            aviso += "Avião " + planes[i].id + " -> " + "Avião " + planes[j].id 
-                    + "\nPonto de colisão: (" + xCol.toFixed(4) + ";" + yCol.toFixed(4) + ")"
-                    + "\nDiferença de tempo: " + tempoAbsDiferenca.toFixed(4) + "s\n"
-                    + "Avião " + planes[i].id + ": " + parseFloat((t1 * 60 * 60).toFixed(4)) + "s\n"
-                    + "Avião " + planes[j].id + ": " + parseFloat((t2 * 60 * 60).toFixed(4)) + "s\n";
+            if (hasColision) {
+                aviso += "Avião " + planes[i].id + " -> " + "Avião " + planes[j].id 
+                        + "\nPonto de colisão: (" + xCol.toFixed(4) + ";" + yCol.toFixed(4) + ")"
+                        + "\nDiferença de tempo: " + tempoAbsDiferenca.toFixed(4) + "s\n"
+                        + "Avião " + planes[i].id + ": " + parseFloat((t1 * 60 * 60).toFixed(4)) + "s\n"
+                        + "Avião " + planes[j].id + ": " + parseFloat((t2 * 60 * 60).toFixed(4)) + "s\n";
+            }
 
         }
     }
 
     aviso += "\n";
 
-    drawColPoint = true;
-    hasColision = tempoAbsDiferenca < tempoSeguro;
 
     return aviso;
 }

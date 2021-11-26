@@ -66,6 +66,8 @@ Trabalho desenvolvido para a materia de Computação Grafica da UNESC
 
 - [x] sempre ser necessario informar pelo menos zero nos inputs
 
+- [x] calcular X e Y a partir do raio e angulo
+
 <h2 align="center">Imagens</div><br><br>
 
 ![1](.github/1.png)

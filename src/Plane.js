@@ -48,6 +48,7 @@ class Plane {
     switch (true) {
       case this.x !== 0 || this.y !== 0:
         this.setCanvasCartesianPoint(this.x, this.y);
+        this.setRaioAnguloByCoordenadaCartesian(this.x, this.y);
         break;
 
       case this.raio !== 0 || this.angle !== 0:
@@ -61,10 +62,14 @@ class Plane {
   }
 
   setRaioAnguloByCoordenadaCartesian(x, y) {
-    this.raio = parseFloat(
-      Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)).toFixed(4)
-    );
-    this.angle = isNaN(parseFloat(Math.atan((y / x)).toFixed(4))) ? 0 : parseFloat(Math.atan(y / x).toFixed(4));
+    // Calculo equivalente a linha abaixo: r = √x² + y²
+    this.raio = parseFloat(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))) || 0
+
+    // Calculo equivalente a linha abaixo: tag(teta)
+    let theta = parseFloat((Math.atan2(y, x) * 180) / Math.PI) || 0;
+    if (theta < 0) theta = 360 + theta; // range [0, 360)
+
+    this.angle = theta;
   }
 
   setXYByCoordenadaPolar(raio, angle) {
